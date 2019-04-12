@@ -809,7 +809,7 @@ target_include_directories(crypto
 		evp
 		modes
 		../include/compat
-	PUBLIC  $<BUILD_INTERFACE:../include>
+	PUBLIC  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
   		$<INSTALL_INTERFACE:include>
 	)
 	
