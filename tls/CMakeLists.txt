@@ -36,7 +36,7 @@ target_include_directories(tls
 		.
 		../include/compat
 	PUBLIC
-		$<BUILD_INTERFACE:../include>
+		$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
   		$<INSTALL_INTERFACE:include>
 	)
 
