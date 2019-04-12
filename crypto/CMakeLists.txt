@@ -809,9 +809,10 @@ target_include_directories(crypto
 		evp
 		modes
 		../include/compat
-	PUBLIC
-		../include)
-
+	PUBLIC  $<BUILD_INTERFACE:../include>
+  		$<INSTALL_INTERFACE:include>
+		)
+)
 if (BUILD_SHARED_LIBS)
 	export_symbol(crypto ${CMAKE_CURRENT_BINARY_DIR}/crypto_p.sym)
 	target_link_libraries(crypto ${PLATFORM_LIBS})
