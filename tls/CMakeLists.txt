@@ -36,7 +36,9 @@ target_include_directories(tls
 		.
 		../include/compat
 	PUBLIC
-		../include)
+		$<BUILD_INTERFACE:../include>
+  		$<INSTALL_INTERFACE:include>
+	)
 
 if (BUILD_SHARED_LIBS)
 	export_symbol(tls ${CMAKE_CURRENT_SOURCE_DIR}/tls.sym)
