@@ -826,10 +826,14 @@ if (BUILD_SHARED_LIBS)
 endif()
 
 if(ENABLE_LIBRESSL_INSTALL)
-	install(TARGETS crypto
-		EXPORT crypto
-		ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-		LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-		RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-	)
+    install(TARGETS crypto
+            EXPORT crypto
+            ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    )
+
+    # Create the .cmake to import the library target into an external project.
+    # Output path: ${CMAKE_INSTALL_PREFIX}/cmake
+    install(EXPORT crypto DESTINATION cmake)
 endif(ENABLE_LIBRESSL_INSTALL)
