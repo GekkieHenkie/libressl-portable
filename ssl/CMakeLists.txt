@@ -47,7 +47,9 @@ target_include_directories(ssl
 		.
 		../include/compat
 	PUBLIC
-		../include)
+		$<BUILD_INTERFACE:../include>
+  		$<INSTALL_INTERFACE:include>
+	)
 
 if (BUILD_SHARED_LIBS)
 	export_symbol(ssl ${CMAKE_CURRENT_SOURCE_DIR}/ssl.sym)
