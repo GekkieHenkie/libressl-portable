@@ -58,4 +58,8 @@ if(ENABLE_LIBRESSL_INSTALL)
 		LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 		RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 	)
-endif(ENABLE_LIBRESSL_INSTALL)
+
+    # Create the .cmake to import the library target into an external project.
+    # Output path: ${CMAKE_INSTALL_PREFIX}/cmake
+    install(EXPORT tls DESTINATION cmake)
+endif()
